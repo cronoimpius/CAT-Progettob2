@@ -1,0 +1,84 @@
+\section{Forma di stato e linearizzazione}
+
+    Preso il nostro sistema di partenza, vogliamo rappresentarlo nella forma di stato.\\\\
+    Per farlo poniamo:\\
+    \begin{equation*}
+        x=\begin{bmatrix}   
+            \omega\\ 
+            \dot{\rho}\\ 
+            \rho 
+        \end{bmatrix}\hspace{0.5cm}
+        u=\tau\hspace{0.5cm}
+        y=\omega
+    \end{equation*}\\
+    Per cui possiamo scrivere:
+    \begin{equation*}
+        \left\{ \begin{array}{ll}
+            x_1=\omega\\
+            x_2=\dot{\rho}\\
+            x_3=\rho
+        \end{array} \right.
+        \rightarrow
+        \left\{ \begin{array}{ll}
+            \dot{x_1}=\dot{\omega}\\
+            \dot{x_2}=\ddot{\rho}\\
+            \dot{x_3}=x_2
+        \end{array} \right.
+    \end{equation*}
+    Sostituendo nelle formule di partenza otteniamo il sistema in forma di stato:
+    \begin{equation}
+        \left\{ \begin{array}{ll}
+            \dot{x_1}= f_1(x,u) = -\dfrac{2x_1x_2}{x_3}-\dfrac{\beta_2x_1}{m}+\dfrac{u}{mx_3}\\\\
+            \dot{x_2}= f_2(x,u) = \dfrac{1}{m}\biggl[-\beta_1x_2+m(k-1)\biggl(\dfrac{K_GM}{{x_3}^2}-x_3{x_1}^2\biggr)\biggr]\\\\
+            \dot{x_3}= f_3(x,u) = x_2\\\\
+            y= h(x,u) = x_1
+        \end{array} \right.
+    \end{equation}
+    Sapendo che \(\rho_e\) è un valore di equilibrio, possiamo trovare la coppia di 
+    equilibrio \((x_e,u_e)\)  in modo da poter linearizzare il sistema non lineare nell'equilibrio.\\\\
+    Abbiamo trovato la coppia di equilibrio:
+    \begin{equation*}
+        \Biggl(
+            \begin{bmatrix}
+                \sqrt{\dfrac{K_GM}{{\rho_e}^3}}\\
+                0\\
+                \rho_e
+            \end{bmatrix},
+            \beta_2\sqrt{\dfrac{K_GM}{{\rho_e}}}
+        \Biggr)
+    \end{equation*}
+    \clearpage
+    Otteniamo le matrici:\\\\
+    \begin{equation}
+        \begin{array}{l}
+            A=\dfrac{\partial f(x,u)}{\partial x}\Biggl\vert_{\substack{x=x_e\\ u=u_e}}=
+            \begin{bmatrix}
+                -\dfrac{2x_{2e}}{x_{3e}}-\dfrac{\beta_2}{m} & -\dfrac{2x_{1e}}{x_{3e}} & \dfrac{2x_{2e}x_{1e}}{{x_{3e}}^2}\\\\
+                -(k-1)2x_{1e}x_{3e} & -\dfrac{\beta_1}{m}    &   (k-1)\biggl(-2\dfrac{K_GM}{{x_{3e}}^2}-{x_{1e}}^2\biggr)\\\\
+                0   &  1    &    0
+            \end{bmatrix} \\\\\\
+            B=\dfrac{\partial f(x,u)}{\partial u}\Biggl\vert_{\substack{x=x_e\\ u=u_e}}=
+            \begin{bmatrix}
+                \dfrac{1}{mx_{3e}}\\\\
+                0\\\\
+                0
+            \end{bmatrix}\\\\\\
+            C=\dfrac{\partial h(x,u)}{\partial x}\Biggl\vert_{\substack{x=x_e\\ u=u_e}}=
+            \begin{bmatrix}
+                1&0&0
+            \end{bmatrix}\\\\\\
+            D=\dfrac{\partial h(x,u)}{\partial u}\Biggl\vert_{\substack{x=x_e\\ u=u_e}}=0
+        \end{array}
+    \end{equation}
+
+    Da cui ricaviamo il sistema linearizzato
+
+    \begin{equation}
+        \left\{ \begin{array}{ll}
+            \dot{x_1}= -\dfrac{\beta_2}{m}x_1-\dfrac{2x_{1e}}{x_{3e}}x_2-\dfrac{u_e}{mx^2_{3e}}x_3+\dfrac{u}{mx_{3e}}\\\\
+            \dot{x_2}= -[(k-1)2x_{1e}x_{3e}]x_1-\dfrac{\beta_1}{m}x_2+(k-1) \Biggl( -\dfrac{2K_GM}{x^3_{3e}}-x^2_{1e} \Biggr)  x_3\\\\
+            \dot{x_3}= x_2\\\\
+            y= x_1
+        \end{array} \right.
+    \end{equation}
+
