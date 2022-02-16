@@ -1,7 +1,7 @@
 # CAT-Progettob2
  Repo for [CAT] project of group AH
 
-The assignment is [Progetto_b2](https://github.com/cronoimpius/CAT-Progettob2/blob/main/Progetto_b2.pdf).
+The assignment is [Progetto_b2](https://github.com/cronoimpius/CAT-Progettob2/blob/main/Progetto_b2.pdf)
 
 Our final presentation is [Progetto_svolto_AH](https://github.com/cronoimpius/CAT-Progettob2/blob/main/Progetto_svolto_AH.pdf)
 
